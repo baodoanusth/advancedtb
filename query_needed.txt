@@ -1,0 +1,17 @@
+show:
+hotel: name, address, URL, size
+staff:id, name, hotel_name, position, DOB, address, salary
+guest: name, tel, address, nationality, passport_number
+booking: id, guest name, employee_name, date from, date to, price (trigger)
+membership: guest_name, card_id, point, vip (boolean)
+rooms: room_number, hotel_name, floor, price
+
+(show xong da find tinh sau)
+
+find:
+hotel: name, id, address, url
+staff: id, name, position
+guest: name, tel, address, nationality, passport_number, date from, date to
+bookings: id, guest_name, date from, date to
+membership: guest_name, card_id, point, vip
+rooms: room_number, hotel_name, floor, price
