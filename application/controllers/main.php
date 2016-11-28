@@ -30,6 +30,8 @@ class Main extends CI_Controller {
 	}
 	public function edit_staff(){
 		$this->load->view('edit_staff');
+	public function test(){
+		$this->load->view('test');
 	}
 
 	//-------------------------------------------------------------------delete

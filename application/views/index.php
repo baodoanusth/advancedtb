@@ -10,6 +10,17 @@
 <script type="text/javascript" src="assets/js/clockh.js"></script> 
 <script type="text/javascript" src="assets/js/jquery.min.js"></script>
 <script type="text/javascript" src="assets/js/ddaccordion.js"></script>
+
+<script type='text/javascript'
+  src='http://code.jquery.com/jquery-1.8.3.js'></script>
+<script type='text/javascript'
+  src="http://cdn.jsdelivr.net/select2/3.4.1/select2.min.js"></script>
+<link rel="stylesheet" type="text/css"
+  href="http://cdn.jsdelivr.net/select2/3.4.1/select2.css">
+<script type='text/javascript'
+  src="http://globaltradeconcierge.com/javascripts/bootstrap.min.js"></script>
+
+
 <script type="text/javascript">
 ddaccordion.init({
 	headerclass: "submenuheader", //Shared CSS class name of headers group
@@ -117,8 +128,34 @@ ddaccordion.init({
     
     <div class="right_content" style="margin-top:10px">            
         
-    <h2>Hotels</h2> 
-                    
+        <h2>Hotels</h2> 
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Search</button>
+        <div class="container">
+  <!-- Trigger the modal with a button -->
+        
+
+  <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Hotel Search</h4>
+        </div>
+        <div class="modal-body">
+            
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
                     
 <table id="rounded-corner" summary="2007 Major IT Companies' Profit">
     <thead>
@@ -169,8 +206,6 @@ ddaccordion.init({
         
     </tbody>
 </table>
-
-	 <a href="#" class="bt_green"><span class="bt_green_lft"></span><strong>Find</strong><span class="bt_green_r"></span></a>
      
            
      <h2>Nice Form example</h2>
@@ -266,6 +301,8 @@ ddaccordion.init({
     <div class="footer">
     
     </div>
+
+    
 
 </div>		
 </body>

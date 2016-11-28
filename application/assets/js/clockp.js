@@ -21,4 +21,3 @@ var ypos=0;
 // code to adjust for daylight saving time if applicable (localzone = 0)
 
 // code to handle clock positioning (fix = 0)
-                  
