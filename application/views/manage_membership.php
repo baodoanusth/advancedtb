@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Hotels Management</title>
+<link rel="stylesheet" type="text/css" href="http://localhost/advancedtb/application/assets/css/bootstrap.css" />
 <link rel="stylesheet" type="text/css" href="http://localhost/advancedtb/application/views/style.css" />
 <script type="text/javascript" src="assets/js/clockp.js"></script>
 <script type="text/javascript" src="assets/js/clockh.js"></script> 

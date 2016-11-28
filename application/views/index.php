@@ -56,7 +56,7 @@ ddaccordion.init({
     <div id="clock_a"></div>
     </div>
     
-    <div class="main_content">
+    <div class="main_content" >
                     
                     
                     
