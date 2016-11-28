@@ -40,6 +40,9 @@ class Main extends CI_Controller {
 	public function edit_membership(){
 		$this->load->view('edit_membership');
 	}
+	public function edit_booking(){
+		$this->load->view('edit_booking');
+	}
 	public function test(){
 		$this->load->view('test');
 	}
@@ -157,6 +160,26 @@ class Main extends CI_Controller {
 			echo "Success";
 			redirect(base_url().'main/manage_membership');
 		} else echo "failed";
+	}
+	public function edit_booking_form(){
+		$Booking_ID = $this->input->post('Booking_ID');
+		$data = array(
+			'guest_id' => $this->input->post('guest_id'),
+			'Employee_ID' => $this->input->post('Employee_ID')
+			);
+		$data = array_filter($data);
+		$this->db->where('Booking_ID', $Booking_ID);
+    	$query = $this->db->update('Bookings', $data);
+		$data1 = array(
+			'Date_From' => $this->input->post('Date_From'),
+			'Date_To' => $this->input->post('Date_To'),
+			'Room_Number' => $this->input->post('Room_Number'),
+			'Hotel_ID' => $this->input->post('Hotel_ID'),
+			);
+		$data1 = array_filter($data1);
+    	$this->db->where('Booking_ID', $Booking_ID);
+    	$query1 = $this->db->update('Booking_Details', $data1);
+			redirect(base_url().'main/manage_bookings');
 	}
 }
 

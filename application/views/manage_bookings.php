@@ -129,7 +129,7 @@ ddaccordion.init({
             <th scope="col" class="rounded">Date From</th>
             <th scope="col" class="rounded">Date To</th>
             <th scope="col" class="rounded">Room Number</th>
-            <th scope="col" class="rounded">Hotel Number</th>
+            <th scope="col" class="rounded">Hotel</th>
             <th scope="col" class="rounded">Edit</th>
             <th scope="col" class="rounded-q4">Delete</th>
         </tr>
@@ -171,6 +171,9 @@ ddaccordion.init({
                 $id2 = $row->Booking_ID;
                 $query1= $this->db->query("select * from Booking_Details where Booking_ID = '$id2'");
                 $row1 = $query1->row();
+                $hotel = $row1->Hotel_ID;
+                $query4= $this->db->query("select * from Hotels where Hotel_ID= '$hotel'");
+                $row4 = $query4->row();
             ?>
             <td><?php
                 echo $row1->Date_From;
@@ -182,11 +185,11 @@ ddaccordion.init({
                 echo $row1->Room_Number;
             ?></td>
             <td><?php
-                echo $row1->Hotel_ID;
+                echo $row4->Hotel_Name;
             ?></td>
 
 
-            <td><a href="#"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
+            <td><a href='<?php echo base_url()."main/edit_booking?Booking_ID=".$row->Booking_ID; ?>'><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
             <td><a href="#" class="ask"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
         </tr>
         <?php
