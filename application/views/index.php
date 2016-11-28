@@ -3,7 +3,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Hotels Management</title>
+<link rel="stylesheet" type="text/css" href="http://localhost/advancedtb/application/assets/css/bootstrap.css" />
 <link rel="stylesheet" type="text/css" href="http://localhost/advancedtb/application/views/style.css" />
+
 <script type="text/javascript" src="assets/js/clockp.js"></script>
 <script type="text/javascript" src="assets/js/clockh.js"></script> 
 <script type="text/javascript" src="assets/js/jquery.min.js"></script>
@@ -122,86 +124,45 @@ ddaccordion.init({
     <thead>
     	<tr>
         	<th scope="col" class="rounded-company"></th>
-            <th scope="col" class="rounded">Product</th>
-            <th scope="col" class="rounded">Details</th>
-            <th scope="col" class="rounded">Price</th>
-            <th scope="col" class="rounded">Date</th>
+            <th scope="col" class="rounded">ID</th>
+            <th scope="col" class="rounded">Name</th>
+            <th scope="col" class="rounded">Address</th>
+            <th scope="col" class="rounded">Size</th>
+            <th scope="col" class="rounded">URL</th>
             <th scope="col" class="rounded">Edit</th>
             <th scope="col" class="rounded-q4">Delete</th>
         </tr>
     </thead>
-        <tfoot>
-    	<tr>
-        	<td colspan="6" class="rounded-foot-left"><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</em></td>
-        	<td class="rounded-foot-right">&nbsp;</td>
-
-        </tr>
-    </tfoot>
     <tbody>
+    <?php
+        $query = $this->db->query("select * from Hotels");
+        foreach ($query->result() as $row) {
+            ?>
     	<tr>
         	<td><input type="checkbox" name="" /></td>
-            <td>Product name</td>
-            <td>details</td>
-            <td>150$</td>
-            <td>12/05/2010</td>
+            <td><?php
+                echo $row->Hotel_ID;
+            ?></td>
+            <td><?php
+                echo $row->Hotel_Name;
+            ?></td>
+            <td><?php
+                echo $row->Hotel_Address;
+            ?></td>
+            <td><?php
+                echo $row->Size;
+            ?></td>
+            <td><a href=""><?php
+                echo $row->Hotel_URL;
+            ?></a></td>
 
-            <td><a href="#"><img src="images/user_edit.png" alt="" title="" border="0" /></a></td>
-            <td><a href="#" class="ask"><img src="images/trash.png" alt="" title="" border="0" /></a></td>
+
+            <td><a href="#"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
+            <td><a href="#" class="ask"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
         </tr>
-        
-    	<tr>
-        	<td><input type="checkbox" name="" /></td>
-            <td>Product name</td>
-            <td>details</td>
-            <td>150$</td>
-            <td>12/05/2010</td>
-
-            <td><a href="#"><img src="images/user_edit.png" alt="" title="" border="0" /></a></td>
-            <td><a href="#" class="ask"><img src="images/trash.png" alt="" title="" border="0" /></a></td>
-        </tr> 
-        
-    	<tr>
-        	<td><input type="checkbox" name="" /></td>
-            <td>Product name</td>
-            <td>details</td>
-            <td>150$</td>
-            <td>12/05/2010</td>
-
-            <td><a href="#"><img src="images/user_edit.png" alt="" title="" border="0" /></a></td>
-            <td><a href="#" class="ask"><img src="images/trash.png" alt="" title="" border="0" /></a></td>
-        </tr>
-        
-    	<tr>
-        	<td><input type="checkbox" name="" /></td>
-            <td>Product name</td>
-            <td>details</td>
-            <td>150$</td>
-            <td>12/05/2010</td>
-
-            <td><a href="#"><img src="images/user_edit.png" alt="" title="" border="0" /></a></td>
-            <td><a href="#" class="ask"><img src="images/trash.png" alt="" title="" border="0" /></a></td>
-        </tr>  
-    	<tr>
-        	<td><input type="checkbox" name="" /></td>
-            <td>Product name</td>
-            <td>details</td>
-            <td>150$</td>
-            <td>12/05/2010</td>
-
-            <td><a href="#"><img src="images/user_edit.png" alt="" title="" border="0" /></a></td>
-            <td><a href="#" class="ask"><img src="images/trash.png" alt="" title="" border="0" /></a></td>
-        </tr>
-        
-    	<tr>
-        	<td><input type="checkbox" name="" /></td>
-            <td>Product name</td>
-            <td>details</td>
-            <td>150$</td>
-            <td>12/05/2010</td>
-
-            <td><a href="#"><img src="images/user_edit.png" alt="" title="" border="0" /></a></td>
-            <td><a href="#" class="ask"><img src="images/trash.png" alt="" title="" border="0" /></a></td>
-        </tr>    
+        <?php
+            }
+        ?> 
         
     </tbody>
 </table>
