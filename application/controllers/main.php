@@ -25,6 +25,13 @@ class Main extends CI_Controller {
 	public function manage_membership(){
 		$this->load->view('manage_membership');
 	}
+	public function delete_hotel(){
+		$Hotel_ID = $this->input->post('Hotel_ID');
+		$this->db->where('Hotel_ID', $Hotel_ID);
+		if ($this->db->delete('Hotels')){
+			redirect('main/index');
+		}
+	}
 
 }
 

@@ -158,7 +158,10 @@ ddaccordion.init({
 
 
             <td><a href="#"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
-            <td><a href="#" class="ask"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
+            <td><form method="post" action="<?php echo base_url() . "main/delete_hotel"?>">
+                    <input type="text" style="display:none" name="Hotel_ID" value="<?php echo $row->Hotel_ID ?>">
+                    <button type="submit" class="btn btn-default" style="padding: 0;border: none;background: none;"> <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> </button>
+            </form></td>
         </tr>
         <?php
             }
