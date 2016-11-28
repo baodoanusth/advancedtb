@@ -158,7 +158,7 @@ JOIN Room_Types on Rooms.Room_Name = Room_Types.Room_Name) ORDER BY Room_Number 
             ?></td>
 
 
-            <td><a href="#"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
+            <td><a href='<?php echo base_url()."main/edit_room?Room_Number=".$row->Room_Number; ?>'><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
             <td><a href="#" class="ask"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
         </tr>
         <?php

@@ -34,6 +34,9 @@ class Main extends CI_Controller {
 	public function edit_guest(){
 		$this->load->view('edit_guest');
 	}
+	public function edit_room(){
+		$this->load->view('edit_room');
+	}
 	public function test(){
 		$this->load->view('test');
 	}
@@ -122,6 +125,21 @@ class Main extends CI_Controller {
 		} else echo "failed";
 	}
 
+	public function edit_room_form(){
+		$Room_Number = $this->input->post('Room_Number');
+		$data = array(
+			'Hotel_ID' => $this->input->post('Hotel_ID'),
+			'Room_Floor' => $this->input->post('Room_Floor'),
+			'Room_Name' => $this->input->post('Room_Name')
+			);
+		$data = array_filter($data);
+		$this->db->where('Room_Number', $Room_Number);
+    	$query = $this->db->update('Rooms', $data);
+		if ($query){
+			echo "Success";
+			redirect(base_url().'main/manage_rooms');
+		} else echo "failed";
+	}
 }
 
 /* End of file welcome.php */
