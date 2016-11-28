@@ -32,7 +32,11 @@ ddaccordion.init({
 	}
 })
 </script>
-
+<style>
+input{
+    margin: 5px;
+}
+</style>
 <script type="text/javascript" src="assets/js/jconfirmaction.jquery.js"></script>
 <script type="text/javascript">
 	

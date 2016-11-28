@@ -91,37 +91,41 @@ input{
     </div> 
 
     <?php
-    if (isset($_GET['Hotel_ID']) === true && empty($_GET['Hotel_ID']) === false ){
-        $Hotel_ID = $this->input->get('Hotel_ID');
+    if (isset($_GET['Guest_ID']) === true && empty($_GET['Guest_ID']) === false ){
+        $Guest_ID = $this->input->get('Guest_ID');
     ?>
 
     <div class="right_content" style="margin-top:10px">            
            
-     <h2>Edit Hotel</h2>
+     <h2>Edit Guest</h2>
      
          <div class="form">
-         <form action="<?php echo base_url() . 'main/edit_hotel_form'?>" method="post" class="niceform">
+         <form action="<?php echo base_url() . 'main/edit_guest_form'?>" method="post" class="niceform">
                 
                 <fieldset>
                     <dl>
-                        <label style="display:none">Hotel ID :</label>
-                        <input type="text" style="display:none" name="Hotel_ID" value="<?php echo $Hotel_ID; ?>"/>
+                        <label style="display:none">Guest ID :</label>
+                        <input type="text" style="display:none" name="Guest_ID" value="<?php echo $Guest_ID; ?>"/>
                     </dl>
                     <dl>
-                        <dt><label>Hotel Name:</label></dt>
-                        <dd><input type="text" name="Hotel_Name"  size="65" placeholder="Name" /></dd>
+                        <dt><label>Guest Name:</label></dt>
+                        <dd><input type="text" name="Guest_Name"  size="65" placeholder="Name" /></dd>
                     </dl>
                     <dl>
-                        <dt><label>Hotel Address:</label></dt>
-                        <dd><input type="text" name="Hotel_Address"  size="65" placeholder="Address" /></dd>
+                        <dt><label>Telephone number:</label></dt>
+                        <dd><input type="text" name="Guest_Tel"  size="65" placeholder="Telephone Number" /></dd>
                     </dl>
                     <dl>
-                        <dt><label>Hotel URL:</label></dt>
-                        <dd><input type="text" name="Hotel_URL"  size="65" placeholder="URL" /></dd>
+                        <dt><label>Address:</label></dt>
+                        <dd><input type="text" name="Guest_Address"  size="65" placeholder="Address" /></dd>
                     </dl>
                     <dl>
-                        <dt><label>size:</label></dt>
-                        <dd><input type="text" name="Size"  size="65" placeholder="size" /></dd>
+                        <dt><label>Nationality:</label></dt>
+                        <dd><input type="text" name="Guest_Nationality"  size="65" placeholder="Nationality" /></dd>
+                    </dl>
+                    <dl>
+                        <dt><label>Passport Number:</label></dt>
+                        <dd><input type="text" name="Guest_Passport"  size="65" placeholder="Passport Number" /></dd>
                     </dl>
                     <ol>
                     <button type="reset" value="Reset" class="btn btn-danger">Reset</button>

@@ -167,7 +167,7 @@ ddaccordion.init({
             ?></td>
 
 
-            <td><a href="#"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
+            <td><a href='<?php echo base_url()."main/edit_guest?Guest_ID=".$row->Guest_ID; ?>'><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
             <td><a href="#" class="ask"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
         </tr>
         <?php

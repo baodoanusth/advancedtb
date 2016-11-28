@@ -31,6 +31,9 @@ class Main extends CI_Controller {
 	public function edit_staff(){
 		$this->load->view('edit_staff');
 	}
+	public function edit_guest(){
+		$this->load->view('edit_guest');
+	}
 	public function test(){
 		$this->load->view('test');
 	}
@@ -98,6 +101,24 @@ class Main extends CI_Controller {
 		if ($query){
 			echo "Success";
 			redirect(base_url().'main/manage_staff');
+		} else echo "failed";
+	}
+
+	public function edit_guest_form(){
+		$Guest_ID = $this->input->post('Guest_ID');
+		$data = array(
+			'Guest_Name' => $this->input->post('Guest_Name'),
+			'Guest_Tel' => $this->input->post('Guest_Tel'),
+			'Guest_Address' => $this->input->post('Guest_Address'),
+			'Guest_Nationality' => $this->input->post('Guest_Nationality'),
+			'Guest_PassportNumber' => $this->input->post('Guest_Passport')
+			);
+		$data = array_filter($data);
+		$this->db->where('Guest_ID', $Guest_ID);
+    	$query = $this->db->update('Guests', $data);
+		if ($query){
+			echo "Success";
+			redirect(base_url().'main/manage_guests');
 		} else echo "failed";
 	}
 
