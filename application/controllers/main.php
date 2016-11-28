@@ -28,7 +28,9 @@ class Main extends CI_Controller {
 	public function edit_hotel(){
 		$this->load->view('edit_hotel');
 	}
-
+	public function test(){
+		$this->load->view('test');
+	}
 
 	//-------------------------------------------------------------------delete
 	public function delete_hotel(){
