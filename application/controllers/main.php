@@ -28,7 +28,9 @@ class Main extends CI_Controller {
 	public function edit_hotel(){
 		$this->load->view('edit_hotel');
 	}
-
+	public function edit_staff(){
+		$this->load->view('edit_staff');
+	}
 
 	//-------------------------------------------------------------------delete
 	public function delete_hotel(){
@@ -74,6 +76,25 @@ class Main extends CI_Controller {
 		if ($query){
 			echo "Success";
 			redirect(base_url().'main/index');
+		} else echo "failed";
+	}
+
+	public function edit_staff_form(){
+		$Employee_ID = $this->input->post('Employee_ID');
+		$data = array(
+			'Hotel_ID' => $this->input->post('Hotel_ID'),
+			'Employee_Name' => $this->input->post('Employee_Name'),
+			'Employee_Position' => $this->input->post('Employee_Position'),
+			'Employee_DOB' => $this->input->post('Employee_DOB'),
+			'Hotel_address' => $this->input->post('Hotel_adr'),
+			'Employee_Salary' => $this->input->post('Employee_Salary')
+			);
+		$data = array_filter($data);
+		$this->db->where('Employee_ID', $Employee_ID);
+    	$query = $this->db->update('Staff', $data);
+		if ($query){
+			echo "Success";
+			redirect(base_url().'main/manage_staff');
 		} else echo "failed";
 	}
 
