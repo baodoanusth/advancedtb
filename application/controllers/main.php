@@ -187,7 +187,7 @@ class Main extends CI_Controller {
     	$query1 = $this->db->update('Booking_Details', $data1);
 			redirect(base_url().'main/manage_bookings');
 	}
-}
+
 	
 	//-------------------------------------------------------------------login-logout-signup
 	public function validate_credentials(){

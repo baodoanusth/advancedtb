@@ -49,7 +49,7 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['dsn'] = '';
-$db['default']['hostname'] = 'VICNOOB';
+$db['default']['hostname'] = 'BAODOAN\SQLEXPRESS02';
 $db['default']['username'] = '';
 $db['default']['password'] = '';
 $db['default']['database'] = 'Mariot_Hotel_Database';
