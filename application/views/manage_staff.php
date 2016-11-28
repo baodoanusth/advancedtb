@@ -166,7 +166,7 @@ JOIN staff on Hotels.Hotel_ID = Staff.Hotel_ID) ORDER BY Employee_ID ASC");
             ?></td>
 
 
-            <td><a href="#"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
+            <td><a href='<?php echo base_url()."main/edit_staff?Employee_ID=".$row->Employee_ID; ?>'><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
             <td><a href="#" class="ask"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
         </tr>
         <?php

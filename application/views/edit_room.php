@@ -91,37 +91,40 @@ input{
     </div> 
 
     <?php
-    if (isset($_GET['Hotel_ID']) === true && empty($_GET['Hotel_ID']) === false ){
-        $Hotel_ID = $this->input->get('Hotel_ID');
+    if (isset($_GET['Room_Number']) === true && empty($_GET['Room_Number']) === false ){
+        $Room_Number = $this->input->get('Room_Number');
     ?>
 
     <div class="right_content" style="margin-top:10px">            
            
-     <h2>Edit Hotel</h2>
+     <h2>Edit Rooms</h2>
      
          <div class="form">
-         <form action="<?php echo base_url() . 'main/edit_hotel_form'?>" method="post" class="niceform">
+         <form action="<?php echo base_url() . 'main/edit_room_form'?>" method="post" class="niceform">
                 
                 <fieldset>
                     <dl>
-                        <label style="display:none">Hotel ID :</label>
-                        <input type="text" style="display:none" name="Hotel_ID" value="<?php echo $Hotel_ID; ?>"/>
+                        <label style="display:none">Room Number :</label>
+                        <input type="text" style="display:none" name="Room_Number" value="<?php echo $Room_Number; ?>"/>
                     </dl>
                     <dl>
-                        <dt><label>Hotel Name:</label></dt>
-                        <dd><input type="text" name="Hotel_Name"  size="65" placeholder="Name" /></dd>
+                        <dt><label>Hotel ID:</label></dt>
+                        <dd><input type="text" name="Hotel_ID"  size="65" placeholder="Hotel ID" /></dd>
                     </dl>
                     <dl>
-                        <dt><label>Hotel Address:</label></dt>
-                        <dd><input type="text" name="Hotel_Address"  size="65" placeholder="Address" /></dd>
+                        <dt><label>Room Floor:</label></dt>
+                        <dd><input type="text" name="Room_Floor"  size="65" placeholder="Room_Floor" /></dd>
                     </dl>
                     <dl>
-                        <dt><label>Hotel URL:</label></dt>
-                        <dd><input type="text" name="Hotel_URL"  size="65" placeholder="URL" /></dd>
-                    </dl>
-                    <dl>
-                        <dt><label>size:</label></dt>
-                        <dd><input type="text" name="Size"  size="65" placeholder="size" /></dd>
+                        <dt><label>Room Name:</label></dt>
+                        <select name="Room_Name" style="margin: 10px 0px 0px 5px">
+                          <option value="Single">Single</option>
+                          <option value="VIP Single">VIP Single</option>
+                          <option value="Double">Double</option>
+                          <option value="Double">VIP family</option>
+                          <option value="Double">Luxyry</option>
+                          <option value="President">President</option>
+                        </select>
                     </dl>
                     <ol>
                     <button type="reset" value="Reset" class="btn btn-danger">Reset</button>

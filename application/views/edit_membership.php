@@ -91,37 +91,35 @@ input{
     </div> 
 
     <?php
-    if (isset($_GET['Hotel_ID']) === true && empty($_GET['Hotel_ID']) === false ){
-        $Hotel_ID = $this->input->get('Hotel_ID');
+    if (isset($_GET['Guest_ID']) === true && empty($_GET['Guest_ID']) === false ){
+        $Guest_ID = $this->input->get('Guest_ID');
+        $query1= $this->db->query("select * from Membership where Guest_ID = '$Guest_ID'");
+        $row1 = $query1->row();
     ?>
 
     <div class="right_content" style="margin-top:10px">            
            
-     <h2>Edit Hotel</h2>
+     <h2>Edit Membership</h2>
      
          <div class="form">
-         <form action="<?php echo base_url() . 'main/edit_hotel_form'?>" method="post" class="niceform">
+         <form action="<?php echo base_url() . 'main/edit_membership_form'?>" method="post" class="niceform">
                 
                 <fieldset>
                     <dl>
-                        <label style="display:none">Hotel ID :</label>
-                        <input type="text" style="display:none" name="Hotel_ID" value="<?php echo $Hotel_ID; ?>"/>
+                        <label style="display:none">Guest ID :</label>
+                        <input type="text" style="display:none" name="Guest_ID" value="<?php echo $Guest_ID; ?>"/>
                     </dl>
                     <dl>
-                        <dt><label>Hotel Name:</label></dt>
-                        <dd><input type="text" name="Hotel_Name"  size="65" placeholder="Name" /></dd>
+                        <dt><label>Card ID:</label></dt>
+                        <dd><input type="text" name="Card_ID"  size="65"  value="<?php echo $row1->Card_ID?>" /></dd>
                     </dl>
                     <dl>
-                        <dt><label>Hotel Address:</label></dt>
-                        <dd><input type="text" name="Hotel_Address"  size="65" placeholder="Address" /></dd>
+                        <dt><label>Point:</label></dt>
+                        <dd><input type="number" name="Points"  size="65" placeholder="Points" /></dd>
                     </dl>
                     <dl>
-                        <dt><label>Hotel URL:</label></dt>
-                        <dd><input type="text" name="Hotel_URL"  size="65" placeholder="URL" /></dd>
-                    </dl>
-                    <dl>
-                        <dt><label>size:</label></dt>
-                        <dd><input type="text" name="Size"  size="65" placeholder="size" /></dd>
+                        <dt><label>VIP:</label></dt>
+                        <dd><input type="number" name="VIP"  size="65" placeholder="VIP Level" /></dd>
                     </dl>
                     <ol>
                     <button type="reset" value="Reset" class="btn btn-danger">Reset</button>
