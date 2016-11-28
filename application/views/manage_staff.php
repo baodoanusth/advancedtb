@@ -5,40 +5,41 @@
 <title>Hotels Management</title>
 <link rel="stylesheet" type="text/css" href="http://localhost/advancedtb/application/assets/css/bootstrap.css" />
 <link rel="stylesheet" type="text/css" href="http://localhost/advancedtb/application/views/style.css" />
+
 <script type="text/javascript" src="assets/js/clockp.js"></script>
 <script type="text/javascript" src="assets/js/clockh.js"></script> 
 <script type="text/javascript" src="assets/js/jquery.min.js"></script>
 <script type="text/javascript" src="assets/js/ddaccordion.js"></script>
 <script type="text/javascript">
 ddaccordion.init({
-	headerclass: "submenuheader", //Shared CSS class name of headers group
-	contentclass: "submenu", //Shared CSS class name of contents group
-	revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
-	mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
-	collapseprev: true, //Collapse previous content (so only one open at any time)? true/false 
-	defaultexpanded: [], //index of content(s) open by default [index1, index2, etc] [] denotes no content
-	onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
-	animatedefault: false, //Should contents open by default be animated into view?
-	persiststate: true, //persist state of opened contents within browser session?
-	toggleclass: ["", ""], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
-	togglehtml: ["suffix", "<img src='images/plus.gif' class='statusicon' />", "<img src='images/minus.gif' class='statusicon' />"], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
-	animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
-	oninit:function(headers, expandedindices){ //custom code to run when headers have initalized
-		//do nothing
-	},
-	onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed
-		//do nothing
-	}
+    headerclass: "submenuheader", //Shared CSS class name of headers group
+    contentclass: "submenu", //Shared CSS class name of contents group
+    revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
+    mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
+    collapseprev: true, //Collapse previous content (so only one open at any time)? true/false 
+    defaultexpanded: [], //index of content(s) open by default [index1, index2, etc] [] denotes no content
+    onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
+    animatedefault: false, //Should contents open by default be animated into view?
+    persiststate: true, //persist state of opened contents within browser session?
+    toggleclass: ["", ""], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
+    togglehtml: ["suffix", "<img src='images/plus.gif' class='statusicon' />", "<img src='images/minus.gif' class='statusicon' />"], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
+    animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
+    oninit:function(headers, expandedindices){ //custom code to run when headers have initalized
+        //do nothing
+    },
+    onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed
+        //do nothing
+    }
 })
 </script>
 
 <script type="text/javascript" src="assets/js/jconfirmaction.jquery.js"></script>
 <script type="text/javascript">
-	
-	$(document).ready(function() {
-		$('.ask').jConfirmAction();
-	});
-	
+    
+    $(document).ready(function() {
+        $('.ask').jConfirmAction();
+    });
+    
 </script>
 
 <script language="javascript" type="text/javascript" src="assets/js/niceforms.js"></script>
@@ -48,7 +49,7 @@ ddaccordion.init({
 <body>
 <div id="main_container">
 
-	<div class="header">
+    <div class="header">
     <a href="#" class="bt_red" style="float: left"><h1>Mariot Hotels Management</h1></a> 
 
     <div class="right_header">Welcome Admin | <a href="#" class="logout">Logout</a></div>
@@ -121,93 +122,61 @@ ddaccordion.init({
                     
 <table id="rounded-corner" summary="2007 Major IT Companies' Profit">
     <thead>
-    	<tr>
-        	<th scope="col" class="rounded-company"></th>
-            <th scope="col" class="rounded">Product</th>
-            <th scope="col" class="rounded">Details</th>
-            <th scope="col" class="rounded">Price</th>
-            <th scope="col" class="rounded">Date</th>
+        <tr>
+            <th scope="col" class="rounded-company"></th>
+            <th scope="col" class="rounded">ID</th>
+            <th scope="col" class="rounded">Name</th>
+            <th scope="col" class="rounded">Works at</th>
+            <th scope="col" class="rounded">Position</th>
+            <th scope="col" class="rounded">DoB</th>
+            <th scope="col" class="rounded">Address</th>
+            <th scope="col" class="rounded">Salary</th>
             <th scope="col" class="rounded">Edit</th>
             <th scope="col" class="rounded-q4">Delete</th>
         </tr>
     </thead>
-        <tfoot>
-    	<tr>
-        	<td colspan="6" class="rounded-foot-left"><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</em></td>
-        	<td class="rounded-foot-right">&nbsp;</td>
-
-        </tr>
-    </tfoot>
     <tbody>
-    	<tr>
-        	<td><input type="checkbox" name="" /></td>
-            <td>Product name</td>
-            <td>details</td>
-            <td>150$</td>
-            <td>12/05/2010</td>
+        <?php
+        $query = $this->db->query("select * from (hotels   
+JOIN staff on Hotels.Hotel_ID = Staff.Hotel_ID) ORDER BY Employee_ID ASC");
+        foreach ($query->result() as $row) {
+            ?>
+        <tr>
+            <td><input type="checkbox" name="" /></td>
+            <td><?php
+                echo $row->Employee_ID;
+            ?></td>
+            <td><?php
+                echo $row->Employee_Name;
+            ?></td>
+            <td><?php
+                echo $row->Hotel_Name;
+            ?></td>
+            <td><?php
+                echo $row->Employee_Position;
+            ?></td>
+            <td><?php
+                echo $row->Employee_DOB;
+            ?></td>
+            <td><?php
+                echo $row->Employee_address;
+            ?></td>
+            <td><?php
+                echo $row->Employee_Salary;
+            ?></td>
 
-            <td><a href="#"><img src="images/user_edit.png" alt="" title="" border="0" /></a></td>
-            <td><a href="#" class="ask"><img src="images/trash.png" alt="" title="" border="0" /></a></td>
+
+            <td><a href="#"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
+            <td><a href="#" class="ask"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
         </tr>
-        
-    	<tr>
-        	<td><input type="checkbox" name="" /></td>
-            <td>Product name</td>
-            <td>details</td>
-            <td>150$</td>
-            <td>12/05/2010</td>
-
-            <td><a href="#"><img src="images/user_edit.png" alt="" title="" border="0" /></a></td>
-            <td><a href="#" class="ask"><img src="images/trash.png" alt="" title="" border="0" /></a></td>
-        </tr> 
-        
-    	<tr>
-        	<td><input type="checkbox" name="" /></td>
-            <td>Product name</td>
-            <td>details</td>
-            <td>150$</td>
-            <td>12/05/2010</td>
-
-            <td><a href="#"><img src="images/user_edit.png" alt="" title="" border="0" /></a></td>
-            <td><a href="#" class="ask"><img src="images/trash.png" alt="" title="" border="0" /></a></td>
-        </tr>
-        
-    	<tr>
-        	<td><input type="checkbox" name="" /></td>
-            <td>Product name</td>
-            <td>details</td>
-            <td>150$</td>
-            <td>12/05/2010</td>
-
-            <td><a href="#"><img src="images/user_edit.png" alt="" title="" border="0" /></a></td>
-            <td><a href="#" class="ask"><img src="images/trash.png" alt="" title="" border="0" /></a></td>
-        </tr>  
-    	<tr>
-        	<td><input type="checkbox" name="" /></td>
-            <td>Product name</td>
-            <td>details</td>
-            <td>150$</td>
-            <td>12/05/2010</td>
-
-            <td><a href="#"><img src="images/user_edit.png" alt="" title="" border="0" /></a></td>
-            <td><a href="#" class="ask"><img src="images/trash.png" alt="" title="" border="0" /></a></td>
-        </tr>
-        
-    	<tr>
-        	<td><input type="checkbox" name="" /></td>
-            <td>Product name</td>
-            <td>details</td>
-            <td>150$</td>
-            <td>12/05/2010</td>
-
-            <td><a href="#"><img src="images/user_edit.png" alt="" title="" border="0" /></a></td>
-            <td><a href="#" class="ask"><img src="images/trash.png" alt="" title="" border="0" /></a></td>
-        </tr>    
+        <?php
+            }
+        ?> 
         
     </tbody>
-</table>
+</table>    
 
-	 <a href="#" class="bt_green"><span class="bt_green_lft"></span><strong>Find</strong><span class="bt_green_r"></span></a>
+     <a href="#" class="bt_green"><span class="bt_green_lft"></span><strong>Find</strong><span class="bt_green_r"></span></a>
      
            
      <h2>Nice Form example</h2>
@@ -298,12 +267,12 @@ ddaccordion.init({
     
     <div class="clear"></div>
     </div> <!--end of main content-->
-	
+    
     
     <div class="footer">
     
     </div>
 
-</div>		
+</div>      
 </body>
 </html>
