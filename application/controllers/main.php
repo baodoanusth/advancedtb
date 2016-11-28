@@ -37,6 +37,9 @@ class Main extends CI_Controller {
 	public function edit_room(){
 		$this->load->view('edit_room');
 	}
+	public function edit_membership(){
+		$this->load->view('edit_membership');
+	}
 	public function test(){
 		$this->load->view('test');
 	}
@@ -138,6 +141,21 @@ class Main extends CI_Controller {
 		if ($query){
 			echo "Success";
 			redirect(base_url().'main/manage_rooms');
+		} else echo "failed";
+	}
+	public function edit_membership_form(){
+		$Guest_ID = $this->input->post('Guest_ID');
+		$data = array(
+			'Card_ID' => $this->input->post('Card_ID'),
+			'Points' => $this->input->post('Points'),
+			'VIP' => $this->input->post('VIP')
+			);
+		$data = array_filter($data);
+		$this->db->where('Guest_ID', $Guest_ID);
+    	$query = $this->db->update('Membership', $data);
+		if ($query){
+			echo "Success";
+			redirect(base_url().'main/manage_membership');
 		} else echo "failed";
 	}
 }
