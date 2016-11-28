@@ -31,6 +31,12 @@ class Main extends CI_Controller {
 	public function test(){
 		$this->load->view('test');
 	}
+	public function login(){
+		$this->load->view('login');
+	}
+	public function signup(){
+		$this->load->view('signup');
+	}
 
 	//-------------------------------------------------------------------delete
 	public function delete_hotel(){
@@ -79,7 +85,65 @@ class Main extends CI_Controller {
 		} else echo "failed";
 	}
 
-}
 
+	
+	//-------------------------------------------------------------------login-logout-signup
+	public function validate_credentials(){
+		$this->load->model('model_users');
+
+		if ($this->model_users->can_log_in()){
+			return true;
+		} else {
+			$this->form_validation->set_message('validate_credentials', 'Incorrect user_name/password.');
+			return false;
+		}
+	}
+
+	public function login_validation() {
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('user_name', 'User_name', 'required|trim|xss_clean|callback_validate_credentials');
+		$this->form_validation->set_rules('password', 'Password', 'required|md5|trim');
+
+		if($this->form_validation->run()) {
+			$user_name = $this->input->post('user_name');
+			$data = array (
+				'user_name' => $this->input->post('user_name'),
+				'is_logged_in' => 1,
+				'priority' => $this->model_users->check_if_admin($user_name)
+			);
+			$this->session->set_userdata($data);
+			redirect('main/index');
+		} else {
+			$this->load->view('login');
+		}
+	}
+
+	public function signup_validation(){
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('password', 'Password', 'required|trim');
+		$this->form_validation->set_rules('cpassword', 'Comfirm Password', 'required|trim|matches[password]');
+
+		if($this->form_validation->run() ){
+			
+			$this->load->model('model_users');
+			$data = array (
+			'user_name' => $this->input->post('user_name'),
+			'password' => md5($this->input->post('password')),
+
+			);
+			if($this->model_users->add_user($data)){
+			redirect('main/index');}
+
+		} else {
+			$this->load->view('signup');
+		}
+	}
+
+	public function logout(){
+		$this->session->sess_destroy();
+		redirect('main/login');
+	}
+}
 /* End of file welcome.php */
 /* Location: ./application/controllers/welcome.php */

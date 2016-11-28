@@ -62,8 +62,26 @@ ddaccordion.init({
 
 	<div class="header">
     <a href="#" class="bt_red" style="float: left"><h1>Mariot Hotels Management</h1></a> 
+    <div class="right_header">Welcome
+    <?php
+    if($this->session->userdata('priority')==2){
+        ?>
+     Admin 
+     <?php
+        }elseif ($this->session->userdata('priority')==1) {
+            ?>
+    User
+    <?php
+        }elseif ($this->session->userdata('priority')==null){
+    ?>
+    Guest
+    <?php
+        }
+     ?>
 
-    <div class="right_header">Welcome Admin | <a href="#" class="logout">Logout</a></div>
+
+
+     | <a href='<?php echo base_url()."main/logout" ?>' class="logout">Logout</a></div>
     <div id="clock_a"></div>
     </div>
     
