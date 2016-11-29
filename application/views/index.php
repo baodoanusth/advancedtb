@@ -19,7 +19,20 @@
   href="http://cdn.jsdelivr.net/select2/3.4.1/select2.css">
 <script type='text/javascript'
   src="http://globaltradeconcierge.com/javascripts/bootstrap.min.js"></script>
-
+<script type="text/javascript">
+   $(".modal-body form").submit(function(e) {
+    var url = "index.php"; // the script where you handle the form input.
+    $.ajax({
+           type: "POST",
+           url: url,
+           data: $(this).serialize(), // serializes the form's elements.
+           success: function(data) {
+               $(this).html("Thank you!!!");
+           }
+         });
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+});
+</script>
 
 <script type="text/javascript">
 ddaccordion.init({
@@ -177,11 +190,75 @@ ddaccordion.init({
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="close">&times;</button>
           <h4 class="modal-title">Hotel Search</h4>
         </div>
         <div class="modal-body">
-            
+            <form method="post" class="niceform">
+                <span> Search by: </span>
+                <select name="type" style="margin: 10px 0px 0px 5px">
+                          <option value="Hotel_ID">ID</option>
+                          <option value="Hotel_Name">Name</option>
+                          <option value="Hotel_Address">Address</option>
+                          <option value="Size">Size</option>
+                          <option value="Hotel_URL">URL</option>
+                </select>
+                <input type="text" name="Key"  size="65" placeholder="Keyword" />
+
+                <button type="post" name="submit" id="submit" value="Submit" class="btn btn-primary"s />Submit</button>
+            </form>
+                    <?php
+                        $type = $this->input->post('type');
+                        
+                        $key = $this->input->post('Key');
+                        
+                        if($type!= null && $key!= null){
+                            
+                        $query1 = $this->db->query("select * from Hotels where $type LIKE '%$key%' ");
+                        ?>
+                        <table id="rounded-corner" style="width:90%">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="rounded">ID</th>
+                                    <th scope="col" class="rounded">Name</th>
+                                    <th scope="col" class="rounded">Address</th>
+                                    <th scope="col" class="rounded">Size</th>
+                                    <th scope="col" class="rounded">URL</th>
+                                                
+                                </tr>
+                        </thead>
+                                        <tbody>
+                                        <?php
+                        foreach ($query1->result() as $row1) {
+                                        ?>
+                                        
+                                    <tr>
+                                    
+                                        <td><?php
+                                            echo $row1->Hotel_ID;
+                                        ?></td>
+                                        <td><?php
+                                            echo $row1->Hotel_Name;
+                                        ?></td>
+                                        <td><?php
+                                            echo $row1->Hotel_Address;
+                                        ?></td>
+                                        <td><?php
+                                            echo $row1->Size;
+                                        ?></td>
+                                        <td><a href=""><?php
+                                            echo $row1->Hotel_URL;
+                                        ?></a></td>
+
+                                        
+                                    </tr>
+                                    <?php
+
+                            }
+                        }
+                    ?>
+                                    </tbody>
+                                    </table>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
