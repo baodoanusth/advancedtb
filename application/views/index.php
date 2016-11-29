@@ -160,9 +160,15 @@ ddaccordion.init({
         <div class="col-sm-2 col-sm-push-3">
         <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal">Search</button>
         </div>
+        <?php
+            if($this->session->userdata('priority')==2 || $this->session->userdata('priority')==1){
+        ?>
         <div class="col-sm-1 ">
         <a href="add_hotel"><button type="button" class="btn btn-primary btn-xs">Add</button></a>
         </div>
+        <?php
+            }
+        ?>
         <div class="container">
 
         
@@ -202,8 +208,14 @@ ddaccordion.init({
             <th scope="col" class="rounded">Address</th>
             <th scope="col" class="rounded">Size</th>
             <th scope="col" class="rounded">URL</th>
+            <?php
+                if($this->session->userdata('priority')==2){
+            ?>
             <th scope="col" class="rounded">Edit</th>
             <th scope="col" class="rounded-q4">Delete</th>
+            <?php
+                }
+            ?>
         </tr>
     </thead>
     <tbody>
@@ -229,12 +241,17 @@ ddaccordion.init({
                 echo $row->Hotel_URL;
             ?></a></td>
 
-
+            <?php
+                if($this->session->userdata('priority')==2){
+            ?>
             <td><a href='<?php echo base_url()."main/edit_hotel?Hotel_ID=".$row->Hotel_ID; ?>'><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
             <td><form method="post" action="<?php echo base_url() . "main/delete_hotel"?>">
                     <input type="text" style="display:none" name="Hotel_ID" value="<?php echo $row->Hotel_ID ?>">
                     <button type="submit" class="btn btn-default" style="padding: 0;border: none;background: none;"> <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> </button>
             </form></td>
+            <?php
+                }
+            ?>
         </tr>
         <?php
             }
