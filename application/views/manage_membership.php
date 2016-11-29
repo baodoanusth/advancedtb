@@ -133,13 +133,7 @@ ddaccordion.init({
             <th scope="col" class="rounded-q4">Delete</th>
         </tr>
     </thead>
-        <tfoot>
-        <tr>
-            <td colspan="6" class="rounded-foot-left"><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</em></td>
-            <td class="rounded-foot-right">&nbsp;</td>
-
-        </tr>
-    </tfoot>
+        
     <tbody>
         <?php
         $query = $this->db->query("select * from Membership ORDER BY Guest_ID ASC");
@@ -182,82 +176,7 @@ ddaccordion.init({
      <a href="#" class="bt_green"><span class="bt_green_lft"></span><strong>Find</strong><span class="bt_green_r"></span></a>
      
            
-     <h2>Nice Form example</h2>
      
-         <div class="form">
-         <form action="" method="post" class="niceform">
-         
-                <fieldset>
-                    <dl>
-                        <dt><label for="email">Email Address:</label></dt>
-                        <dd><input type="text" name="" id="" size="54" /></dd>
-                    </dl>
-                    <dl>
-                        <dt><label for="password">Password:</label></dt>
-                        <dd><input type="text" name="" id="" size="54" /></dd>
-                    </dl>
-                    
-                    
-                    <dl>
-                        <dt><label for="gender">Select categories:</label></dt>
-                        <dd>
-                            <select size="1" name="gender" id="">
-                                <option value="">Select option 1</option>
-                                <option value="">Select option 2</option>
-                                <option value="">Select option 3</option>
-                                <option value="">Select option 4</option>
-                                <option value="">Select option 5</option>
-                            </select>
-                        </dd>
-                    </dl>
-                    <dl>
-                        <dt><label for="interests">Select tags:</label></dt>
-                        <dd>
-                            <input type="checkbox" name="interests[]" id="" value="" /><label class="check_label">Web design</label>
-                            <input type="checkbox" name="interests[]" id="" value="" /><label class="check_label">Business</label>
-                            <input type="checkbox" name="interests[]" id="" value="" /><label class="check_label">Simple</label>
-                            <input type="checkbox" name="interests[]" id="" value="" /><label class="check_label">Clean</label>
-                        </dd>
-                    </dl>
-                    
-                    <dl>
-                        <dt><label for="color">Select type</label></dt>
-                        <dd>
-                            <input type="radio" name="type" id="" value="" /><label class="check_label">Basic</label>
-                            <input type="radio" name="type" id="" value="" /><label class="check_label">Medium</label>
-                            <input type="radio" name="type" id="" value="" /><label class="check_label">Premium</label>
-                        </dd>
-                    </dl>
-                    
-                    
-                    
-                    <dl>
-                        <dt><label for="upload">Upload a File:</label></dt>
-                        <dd><input type="file" name="upload" id="upload" /></dd>
-                    </dl>
-                    
-                    <dl>
-                        <dt><label for="comments">Message:</label></dt>
-                        <dd><textarea name="comments" id="comments" rows="5" cols="36"></textarea></dd>
-                    </dl>
-                    
-                    <dl>
-                        <dt><label></label></dt>
-                        <dd>
-                            <input type="checkbox" name="interests[]" id="" value="" /><label class="check_label">I agree to the <a href="#">terms &amp; conditions</a></label>
-                        </dd>
-                    </dl>
-                    
-                     <dl class="submit">
-                    <input type="submit" name="submit" id="submit" value="Submit" />
-                     </dl>
-                     
-                     
-                    
-                </fieldset>
-                
-         </form>
-         </div>  
       
      
      </div><!-- end of right content-->

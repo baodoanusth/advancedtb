@@ -60,29 +60,24 @@ ddaccordion.init({
 <body>
 <div id="main_container">
 
-	<div class="header_login">
-    <div class="logo"><a href="#"><img src="images/logo.gif" alt="" title="" border="0" /></a></div>
-    
-    </div>
-
      
          <div class="login_form">
          
-         <h3>Admin Panel Signup</h3>
+         <h1 style="color: #76f2c4; text-align: center">Signup</h1>
          
          <form action="<?php echo base_url() . 'main/signup_validation'?>" method="post" class="niceform">
          
                 <fieldset>
                     <dl>
-                        <dt><label for="email">Username:</label></dt>
+                        <dt><label for="email" style="color: #76f2c4">Username:</label></dt>
                         <dd><input type="text" name="user_name" id="" size="54" /></dd>
                     </dl>
                     <dl>
-                        <dt><label for="password">Password:</label></dt>
+                        <dt><label for="password" style="color: #76f2c4">Password:</label></dt>
                         <dd><input type="password" name="password" id="" size="54" /></dd>
                     </dl>
                     <dl>
-                        <dt><label for="password">Re-Password:</label></dt>
+                        <dt><label for="password" style="color: #76f2c4">Re-Password:</label></dt>
                         <dd><input type="password" name="cpassword" id="" size="54" /></dd>
                     </dl>
                     
@@ -92,7 +87,7 @@ ddaccordion.init({
                     </dl>
                     
                      <dl class="submit">
-                    <input type="submit" name="submit" id="submit" value="Enter" />
+                    <button type="submit" name="submit" id="submit" class="btn btn-success">Login</button>
                      </dl>
                     
                 </fieldset>
