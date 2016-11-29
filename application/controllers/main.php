@@ -43,6 +43,21 @@ class Main extends CI_Controller {
 	public function edit_booking(){
 		$this->load->view('edit_booking');
 	}
+
+	public function add_hotel(){
+		$this->load->view('add_hotel');
+	}
+
+	public function add_guest(){
+		$this->load->view('add_guest');
+	}
+
+	public function add_staff(){
+		$this->load->view('add_staff');
+	}
+	public function add_room(){
+		$this->load->view('add_room');
+	}
 	public function test(){
 		$this->load->view('test');
 	}
@@ -81,6 +96,70 @@ class Main extends CI_Controller {
 		
 	}
 
+	//-------------------------------------------------------------------Add
+	public function add_hotel_form(){
+		$data = array(
+			'Hotel_ID' => $this->input->post('Hotel_ID'),
+			'Hotel_Name' => $this->input->post('Hotel_Name'),
+			'Hotel_Address' => $this->input->post('Hotel_Address'),
+			'Hotel_URL' => $this->input->post('Hotel_URL'),
+			'size' => $this->input->post('Size')
+			);
+		$query = $this->db->insert('Hotels', $data);
+		if ($query){
+			echo "Success";
+			redirect(base_url().'main/index');
+		} else echo "failed";
+	}
+
+	public function add_staff_form(){
+		$data = array(
+			'Employee_ID' => $this->input->post('Employee_ID'),
+			'Hotel_ID' => $this->input->post('Hotel_ID'),
+			'Employee_Name' => $this->input->post('Employee_Name'),
+			'Employee_Position' => $this->input->post('Employee_Position'),
+			'Employee_DOB' => $this->input->post('Employee_DOB'),
+			'Employee_address' => $this->input->post('Employee_adr'),
+			'Employee_Salary' => $this->input->post('Employee_Salary')
+			);
+    	$query = $this->db->insert('Staff', $data);
+		if ($query){
+			echo "Success";
+			redirect(base_url().'main/manage_staff');
+		} else echo "failed";
+	}
+
+	public function add_guest_form(){
+		$Guest_ID = $this->input->post('Guest_ID');
+		$data = array(
+			'Guest_ID ' => $this->input->post('Guest_ID'),
+			'Guest_Name' => $this->input->post('Guest_Name'),
+			'Guest_Tel' => $this->input->post('Guest_Tel'),
+			'Guest_Address' => $this->input->post('Guest_Address'),
+			'Guest_Nationality' => $this->input->post('Guest_Nationality'),
+			'Guest_PassportNumber' => $this->input->post('Guest_Passport')
+			);
+    	$query = $this->db->insert('Guests', $data);
+		if ($query){
+			echo "Success";
+			redirect(base_url().'main/manage_guests');
+		} else echo "failed";
+	}
+
+	public function add_room_form(){
+		$data = array(
+			'Room_Number' => $this->input->post('Room_Number'),
+			'Hotel_ID' => $this->input->post('Hotel_ID'),
+			'Room_Floor' => $this->input->post('Room_Floor'),
+			'Room_Name' => $this->input->post('Room_Name')
+			);
+    	$query = $this->db->insert('Rooms', $data);
+		if ($query){
+			echo "Success";
+			redirect(base_url().'main/manage_rooms');
+		} else echo "failed";
+	}
+
 
 	//-------------------------------------------------------------------edit
 	public function edit_hotel_form(){
@@ -89,7 +168,7 @@ class Main extends CI_Controller {
 			'Hotel_Name' => $this->input->post('Hotel_Name'),
 			'Hotel_Address' => $this->input->post('Hotel_Address'),
 			'Hotel_URL' => $this->input->post('Hotel_URL'),
-			'size' => $this->input->post('size')
+			'size' => $this->input->post('Size')
 			);
 		$data = array_filter($data);
 		$this->db->where('Hotel_ID', $Hotel_ID);
@@ -107,7 +186,7 @@ class Main extends CI_Controller {
 			'Employee_Name' => $this->input->post('Employee_Name'),
 			'Employee_Position' => $this->input->post('Employee_Position'),
 			'Employee_DOB' => $this->input->post('Employee_DOB'),
-			'Hotel_address' => $this->input->post('Hotel_adr'),
+			'Employee_address' => $this->input->post('Employee_adr'),
 			'Employee_Salary' => $this->input->post('Employee_Salary')
 			);
 		$data = array_filter($data);
