@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Hotels Management</title>
+
 <link rel="stylesheet" type="text/css" href="http://localhost/advancedtb/application/assets/css/bootstrap.css" />
 <link rel="stylesheet" type="text/css" href="http://localhost/advancedtb/application/views/style.css" />
 
@@ -193,7 +194,7 @@ ddaccordion.init({
         <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal">Search</button>
         </div>
         <?php
-            if($this->session->userdata('priority')==2 || $this->session->userdata('priority')==1){
+            if($this->session->userdata('priority')==2){
         ?>
         <div class="col-sm-1 ">
         <a href="add_hotel"><button type="button" class="btn btn-primary btn-xs">Add</button></a>
@@ -229,8 +230,8 @@ ddaccordion.init({
                           <option value="Hotel_URL">URL</option>
                 </select>
                 <input type="text" name="Key"  size="65" placeholder="Keyword" />
-
-                <button type="submit" name="submit" id="submit" value="Submit" class="btn btn-primary"s />Submit</button>
+                
+                <button type="submit" name="submit" id="SearchButton" value="Submit" class="btn btn-primary sm"s />Submit</button>
             </form>
                     <?php
                         $type = $this->input->post('type');

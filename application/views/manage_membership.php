@@ -188,9 +188,15 @@ ddaccordion.init({
         <div class="col-sm-2 col-sm-push-3">
         <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal">Search</button>
         </div>
+        <?php
+            if($this->session->userdata('priority')==2 || $this->session->userdata('priority')==1){
+        ?>
         <div class="col-sm-1 ">
         <a href="add_membership"><button type="button" class="btn btn-primary btn-xs">Add</button> </a>
         </div>
+        <?php
+            }
+        ?>
         <div class="container">
   <!-- Trigger the modal with a button -->
         
@@ -289,7 +295,7 @@ ddaccordion.init({
     </tbody>
 </table>
 
-     <a href="#" class="bt_green"><span class="bt_green_lft"></span><strong>Find</strong><span class="bt_green_r"></span></a>
+ 
      
            
      

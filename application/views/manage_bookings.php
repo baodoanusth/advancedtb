@@ -319,7 +319,7 @@ ddaccordion.init({
     </tbody>
 </table>
 
-     <a href="#" class="bt_green"><span class="bt_green_lft"></span><strong>Find</strong><span class="bt_green_r"></span></a>
+     
      
            
      
