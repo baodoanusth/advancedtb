@@ -207,7 +207,76 @@ ddaccordion.init({
           <h4 class="modal-title">Guest Search</h4>
         </div>
         <div class="modal-body">
-            
+            <form method="post" class="niceform">
+                <span> Search by: </span>
+                <select name="type" style="margin: 10px 0px 0px 5px">
+                          <option value="Guest_ID">ID</option>
+                          <option value="Guest_Name">Name</option>
+                          <option value="Guest_Address">Address</option>
+                          <option value="Guest_Tel">Telephone</option>
+                          <option value="Guest_Nationality">Nationality</option>
+                          <option value="Guest_PassportNumber">Passport</option>
+                </select>
+                <input type="text" name="Key"  size="65" placeholder="Keyword" value="$key" />
+
+                <button type="submit" name="submit" id="submit" value="Submit" class="btn btn-primary"s />Submit</button>
+            </form>
+                    <?php
+                        $type = $this->input->post('type');
+                        
+                        $key = $this->input->post('Key');
+                        
+                        if($type!= null && $key!= null){
+                            
+                        $query1 = $this->db->query("select * from Guests where $type LIKE '%$key%' ");
+                        ?>
+                        <table id="rounded-corner" style="width:90%">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="rounded">ID</th>
+                                    <th scope="col" class="rounded">Name</th>
+                                    <th scope="col" class="rounded">Address</th>
+                                    <th scope="col" class="rounded">Tel No.</th>
+                                    <th scope="col" class="rounded">Nationality</th>
+                                    <th scope="col" class="rounded">Passport</th>
+                                                
+                                </tr>
+                        </thead>
+                                        <tbody>
+                                        <?php
+                        foreach ($query1->result() as $row1) {
+                                        ?>
+                                        
+                                    <tr>
+                                    
+                                        <td><?php
+                                            echo $row1->Guest_ID;
+                                        ?></td>
+                                        <td><?php
+                                            echo $row1->Guest_Name;
+                                        ?></td>
+                                        <td><?php
+                                            echo $row1->Guest_Address;
+                                        ?></td>
+                                        <td><?php
+                                            echo $row1->Guest_Tel;
+                                        ?></td>
+                                        <td><?php
+                                            echo $row1->Guest_Nationality;
+                                        ?></td>
+                                        <td><?php
+                                            echo $row1->Guest_PassportNumber;
+                                        ?></td>
+
+                                        
+                                    </tr>
+                                    <?php
+
+                            }
+                        }
+                    ?>
+                                    </tbody>
+                </table>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
