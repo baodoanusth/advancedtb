@@ -147,8 +147,8 @@ input{
                           <option value="Single">Single</option>
                           <option value="VIP Single">VIP Single</option>
                           <option value="Double">Double</option>
-                          <option value="Double">VIP family</option>
-                          <option value="Double">Luxyry</option>
+                          <option value="VIP family">VIP family</option>
+                          <option value="Luxury">Luxyry</option>
                           <option value="President">President</option>
                         </select>
                     </dl>

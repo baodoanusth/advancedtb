@@ -367,6 +367,23 @@ class Main extends CI_Controller {
 		$this->session->sess_destroy();
 		redirect('main/login');
 	}
+
+//-------------------------------------------------------------------search
+	public function search_hotel_form(){
+		$type = $this->input->post('type');
+		$key = $this->input->post('Key');
+		$query = $this->db->query("select * from Hotels where $type LIKE '%$key%' ");
+		foreach ($query->result() as $row) {
+            
+                echo $row->Hotel_ID;
+                echo $row->Hotel_Name;
+                echo $row->Hotel_Address;
+                echo $row->Hotel_URL;
+                echo $row->Size;
+                echo "<br>";
+
+		}
+	}
 }
 /* End of file welcome.php */
 /* Location: ./application/controllers/welcome.php */
