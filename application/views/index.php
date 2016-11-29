@@ -107,45 +107,45 @@ ddaccordion.init({
     
             <div class="sidebarmenu" style="margin-top: 10px">
             
-                <button class="btn btn-primary btn-block" href='<?php echo base_url()."main/index" ?>'>Hotels</button>
+                <a class="btn btn-primary btn-block" href='<?php echo base_url()."main/index" ?>'>Hotels</a>
                 <?php
                     if($this->session->userdata('priority')==2 || $this->session->userdata('priority')==1){
                 ?>
-                <button class="btn btn-primary btn-block" href='<?php echo base_url()."main/manage_staff" ?>' >Staff</button>
+                <a class="btn btn-primary btn-block" href='<?php echo base_url()."main/manage_staff" ?>' >Staff</a>
                 <?php
                     }else{
                 ?>
-                <button class="btn btn-primary btn-block disabled" href='<?php echo base_url()."main/manage_staff" ?>' >Staff</button>
+                <a class="btn btn-primary btn-block disabled" href='<?php echo base_url()."main/manage_staff" ?>' >Staff</a>
                 <?php
                     }
                 ?>
                 <?php
                     if($this->session->userdata('priority')==2 || $this->session->userdata('priority')==1){
                 ?>
-                <button class="btn btn-primary btn-block" href='<?php echo base_url()."main/manage_guests" ?>'>Guests</button>
+                <a class="btn btn-primary btn-block" href='<?php echo base_url()."main/manage_guests" ?>'>Guests</a>
                 <?php
                     }else{
                 ?>
-                <button class="btn btn-primary btn-block disabled" href='<?php echo base_url()."main/manage_guests" ?>'>Guests</button>
+                <a class="btn btn-primary btn-block disabled" href='<?php echo base_url()."main/manage_guests" ?>'>Guests</a>
                 <?php
                     }
                 ?>
                 <?php
                     if($this->session->userdata('priority')==2 || $this->session->userdata('priority')==1){
                 ?>
-                <button class="btn btn-primary btn-block" onclick="javascript:window.location.href-'<?php echo base_url()."main/manage_bookings" ?>'>Bookings</button>
+                <a class="btn btn-primary btn-block" href='<?php echo base_url()."main/manage_bookings" ?>'>Bookings</a>
                 <?php
                     }else{
                 ?>
-                <button class="btn btn-primary btn-block disabled" href='<?php echo base_url()."main/manage_bookings" ?>'>Bookings</button>
+                <a class="btn btn-primary btn-block disabled" href='<?php echo base_url()."main/manage_bookings" ?>'>Bookings</a>
                 <?php
                     }
                 ?>
                 
                 
-                <button class="btn btn-primary btn-block" href='<?php echo base_url()."main/manage_rooms" ?>'>Rooms</button>
+                <a class="btn btn-primary btn-block" href='<?php echo base_url()."main/manage_rooms" ?>'>Rooms</a>
                 
-                <button class="btn btn-danger btn-block" href='<?php echo base_url()."main/manage_membership" ?>'>Membership</button>
+                <a class="btn btn-danger btn-block" href='<?php echo base_url()."main/manage_membership" ?>'>Membership</a>
                     
             </div>
             

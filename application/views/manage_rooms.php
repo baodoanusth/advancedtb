@@ -104,13 +104,45 @@ ddaccordion.init({
     
             <div class="sidebarmenu" style="margin-top: 10px">
             
-                <a class="menuitem submenuheader" href='<?php echo base_url()."main/index" ?>'>Hotels</a>
-                <a class="menuitem submenuheader" href='<?php echo base_url()."main/manage_staff" ?>' >Staff</a>
-                <a class="menuitem submenuheader" href='<?php echo base_url()."main/manage_guests" ?>'>Guests</a>
-                <a class="menuitem" href='<?php echo base_url()."main/manage_bookings" ?>'>Bookings</a>
-                <a class="menuitem" href='<?php echo base_url()."main/manage_rooms" ?>'>Rooms</a>
+                <a class="btn btn-primary btn-block" href='<?php echo base_url()."main/index" ?>'>Hotels</a>
+                <?php
+                    if($this->session->userdata('priority')==2 || $this->session->userdata('priority')==1){
+                ?>
+                <a class="btn btn-primary btn-block" href='<?php echo base_url()."main/manage_staff" ?>' >Staff</a>
+                <?php
+                    }else{
+                ?>
+                <a class="btn btn-primary btn-block disabled" href='<?php echo base_url()."main/manage_staff" ?>' >Staff</a>
+                <?php
+                    }
+                ?>
+                <?php
+                    if($this->session->userdata('priority')==2 || $this->session->userdata('priority')==1){
+                ?>
+                <a class="btn btn-primary btn-block" href='<?php echo base_url()."main/manage_guests" ?>'>Guests</a>
+                <?php
+                    }else{
+                ?>
+                <a class="btn btn-primary btn-block disabled" href='<?php echo base_url()."main/manage_guests" ?>'>Guests</a>
+                <?php
+                    }
+                ?>
+                <?php
+                    if($this->session->userdata('priority')==2 || $this->session->userdata('priority')==1){
+                ?>
+                <a class="btn btn-primary btn-block" href='<?php echo base_url()."main/manage_bookings" ?>'>Bookings</a>
+                <?php
+                    }else{
+                ?>
+                <a class="btn btn-primary btn-block disabled" href='<?php echo base_url()."main/manage_bookings" ?>'>Bookings</a>
+                <?php
+                    }
+                ?>
                 
-                <a class="menuitem_red" href='<?php echo base_url()."main/manage_membership" ?>'>Membership</a>
+                
+                <a class="btn btn-primary btn-block" href='<?php echo base_url()."main/manage_rooms" ?>'>Rooms</a>
+                
+                <a class="btn btn-danger btn-block" href='<?php echo base_url()."main/manage_membership" ?>'>Membership</a>
                     
             </div>
             
@@ -172,7 +204,7 @@ ddaccordion.init({
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Hotel Search</h4>
+          <h4 class="modal-title">Room Search</h4>
         </div>
         <div class="modal-body">
             
@@ -200,8 +232,14 @@ ddaccordion.init({
             <th scope="col" class="rounded">Floor</th>
             <th scope="col" class="rounded">Type</th>
             <th scope="col" class="rounded">Price per day</th>
+            <?php
+                if($this->session->userdata('priority')==2){
+            ?>
             <th scope="col" class="rounded">Edit</th>
             <th scope="col" class="rounded-q4">Delete</th>
+            <?php
+                }
+            ?>
         </tr>
     </thead>
         
@@ -229,9 +267,17 @@ JOIN Room_Types on Rooms.Room_Name = Room_Types.Room_Name) ORDER BY Room_Number 
                 echo $row->Room_Price;
             ?></td>
 
-
+            <?php
+                if($this->session->userdata('priority')==2){
+            ?>
             <td><a href='<?php echo base_url()."main/edit_room?Room_Number=".$row->Room_Number; ?>'><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
-            <td><a href="#" class="ask"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
+            <td><form method="post" action="<?php echo base_url() . "main/delete_room"?>">
+                    <input type="text" style="display:none" name="Room_Number" value="<?php echo $row->Room_Number ?>">
+                    <button type="submit" class="btn btn-default" style="padding: 0;border: none;background: none;"> <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> </button>
+            </form></td>
+            <?php
+                }
+            ?>
         </tr>
         <?php
             }
