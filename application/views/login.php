@@ -60,38 +60,34 @@ ddaccordion.init({
 <body>
 <div id="main_container">
 
-	<div class="header_login">
-    <div class="logo"><a href="#"><img src="images/logo.gif" alt="" title="" border="0" /></a></div>
-    
-    </div>
 
      
          <div class="login_form">
          
-         <h3>Admin Panel Login</h3>
+         <h1 style="text-align: center; color: #76f2c4">Login</h1>
          
          
          <form action="<?php echo base_url() . 'main/login_validation'?>" method="post" class="niceform">
          
                 <fieldset>
                     <dl>
-                        <dt><label for="user_name">Username:</label></dt>
+                        <dt><label for="user_name" style="color: #76f2c4">Username:</label></dt>
                         <dd><input type="text" name="user_name" id="" size="54" /></dd>
                     </dl>
                     <dl>
-                        <dt><label for="password">Password:</label></dt>
+                        <dt><label for="password" style="color: #76f2c4">Password:</label></dt>
                         <dd><input type="password" name="password" id="" size="54" /></dd>
                     </dl>
                     
                     <dl>
                         <dt><label></label></dt>
                         <dd>
-                    <input type="checkbox" name="interests[]" id="" value="" /><label class="check_label">Remember me</label>
+                    <input type="checkbox" name="interests[]" id="" value="" /><label class="check_label" style="color: #23b27e">Remember me</label>
                         </dd>
                     </dl>
                     
                      <dl class="submit">
-                    <input type="submit" name="submit" id="submit" value="Enter" />
+                    <button type="submit" name="submit" id="submit" class="btn btn-success">Login</button>
                      </dl>
                     
                 </fieldset>
