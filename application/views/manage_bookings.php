@@ -117,6 +117,7 @@ ddaccordion.init({
     <div class="right_content" style="margin-top:10px">            
         
     <h2>Bookings</h2> 
+    <a href="add_booking"><button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Add</button> </a>
                     
                     
 <table id="rounded-corner" summary="2007 Major IT Companies' Profit">

@@ -58,6 +58,12 @@ class Main extends CI_Controller {
 	public function add_room(){
 		$this->load->view('add_room');
 	}
+	public function add_membership(){
+		$this->load->view('add_membership');
+	}
+	public function add_booking(){
+		$this->load->view('add_booking');
+	}
 	public function test(){
 		$this->load->view('test');
 	}
@@ -158,6 +164,42 @@ class Main extends CI_Controller {
 			echo "Success";
 			redirect(base_url().'main/manage_rooms');
 		} else echo "failed";
+	}
+
+	public function add_membership_form(){
+		$data = array(
+			'Guest_ID' => $this->input->post('Guest_ID'),
+			'Card_ID' => $this->input->post('Card_ID'),
+			'Points' => $this->input->post('Points'),
+			'VIP' => $this->input->post('VIP')
+			);
+    	$query = $this->db->insert('Membership', $data);
+		if ($query){
+			echo "Success";
+			redirect(base_url().'main/manage_membership');
+		} else echo "failed";
+	}
+
+	public function add_booking_form(){
+		$data1 = array(
+			'Booking_ID' => $this->input->post('Booking_ID'),
+			'Date_From' => $this->input->post('Date_From'),
+			'Date_To' => $this->input->post('Date_To'),
+			'Room_Number' => $this->input->post('Room_Number'),
+			'Hotel_ID' => $this->input->post('Hotel_ID'),
+			);
+		$data = array(
+			'Booking_ID' => $this->input->post('Booking_ID'),
+			'guest_id' => $this->input->post('guest_id'),
+			'Employee_ID' => $this->input->post('Employee_ID')
+			);
+		
+    	$query1 = $this->db->insert('Booking_Details', $data1);
+		if($query1){
+
+    	$query = $this->db->insert('Bookings', $data);
+		}
+			redirect(base_url().'main/manage_bookings');
 	}
 
 
