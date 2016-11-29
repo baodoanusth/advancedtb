@@ -158,7 +158,7 @@ ddaccordion.init({
         <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal">Search</button>
         </div>
         <div class="col-sm-1 ">
-        <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">Add</button>
+        <a href="add_guest"><button type="button" class="btn btn-primary btn-xs">Add</button> </a>
         </div>
         <div class="container">
   <!-- Trigger the modal with a button -->
@@ -187,7 +187,7 @@ ddaccordion.init({
   
 </div>
                     
-    <a href="add_guest"><button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Add</button> </a>
+    
 <table id="rounded-corner" summary="2007 Major IT Companies' Profit">
     <thead>
     	<tr>

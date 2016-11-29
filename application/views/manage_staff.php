@@ -153,19 +153,43 @@ ddaccordion.init({
     
     <div class="right_content" style="margin-top:20px">            
         <div class="col-sm-8 col-sm-push-0">
-        <h2>Hotels</h2> 
+        <h2>Staff</h2>  
         </div>
         <div class="col-sm-2 col-sm-push-3">
         <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal">Search</button>
         </div>
         <div class="col-sm-1 ">
-        <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">Add</button>
+        <a href="add_staff"><button type="button" class="btn btn-primary btn-xs">Add</button> </a>
         </div>
         <div class="container">
   <!-- Trigger the modal with a button -->
+        
 
-    <h2>Staff</h2> 
-    <a href="add_staff"><button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Add</button> </a>
+  <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Hotel Search</h4>
+        </div>
+        <div class="modal-body">
+            
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+            
+    
+    
 
                     
 <table id="rounded-corner" summary="2007 Major IT Companies' Profit">

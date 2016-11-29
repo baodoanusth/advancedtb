@@ -92,7 +92,7 @@ input{
 
     <div class="right_content" style="margin-top:10px">            
            
-     <h2>Edit Rooms</h2>
+     <h2>Add Rooms</h2>
      
          <div class="form">
          <form action="<?php echo base_url() . 'main/add_room_form'?>" method="post" class="niceform">

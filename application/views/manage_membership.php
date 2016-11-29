@@ -151,18 +151,17 @@ ddaccordion.init({
     
     <div class="right_content" style="margin-top:20px">            
         <div class="col-sm-8 col-sm-push-0">
-        <h2>Hotels</h2> 
+        <h2>Membership</h2>
         </div>
         <div class="col-sm-2 col-sm-push-3">
         <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal">Search</button>
         </div>
         <div class="col-sm-1 ">
-        <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">Add</button>
+        <a href="add_membership"><button type="button" class="btn btn-primary btn-xs">Add</button> </a>
         </div>
         <div class="container">
   <!-- Trigger the modal with a button -->
         
-<<<<<<< HEAD
 
   <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
@@ -186,10 +185,9 @@ ddaccordion.init({
   </div>
   
 </div>
-=======
-    <h2>Membership</h2> 
-    <a href="add_membership"><button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Add</button> </a>
->>>>>>> 162bdd192914b16cb1a22eb597e22046d11c6048
+
+     
+    
                     
                     
 <table id="rounded-corner" summary="2007 Major IT Companies' Profit">

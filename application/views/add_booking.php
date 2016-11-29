@@ -90,7 +90,7 @@ input{
     </div> 
     <div class="right_content" style="margin-top:10px">            
            
-     <h2>Edit Booking</h2>
+     <h2>Add Booking</h2>
      
          <div class="form">
          <form action="<?php echo base_url() . 'main/add_booking_form'?>" method="post" class="niceform">
