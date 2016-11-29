@@ -56,9 +56,35 @@ input{
 	<div class="header">
     <a href="#" class="bt_red" style="float: left"><h1>Mariot Hotels Management</h1></a> 
 
-    <div class="right_header">Welcome Admin | <a href="#" class="logout">Logout</a></div>
-    <div id="clock_a"></div>
-    </div>
+    <div class="right_header">Welcome
+    <?php
+    if($this->session->userdata('is_logged_in')==1){
+      ?>
+        <?php
+            if($this->session->userdata('priority')==2){
+        ?>
+            Admin |
+        <?php
+            }elseif ($this->session->userdata('priority')==1) {
+        ?>
+            User |
+        <?php
+            }elseif ($this->session->userdata('priority')==null){
+        ?>
+            Guest |
+        <?php
+            }
+        ?>
+            <a href='<?php echo base_url()."main/logout" ?>' class="logout">Logout</a>
+        <?php
+            } else {
+        ?>
+            <a href='<?php echo base_url()."main/login" ?>'>Log in</a>
+        <?php
+            }
+        ?>
+
+     </div></div>
     
     <div class="main_content" >
                     

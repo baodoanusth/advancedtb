@@ -85,6 +85,14 @@ ddaccordion.init({
                     <input type="checkbox" name="interests[]" id="" value="" /><label class="check_label" style="color: #23b27e">Remember me</label>
                         </dd>
                     </dl>
+
+                    <dl>
+                        <dt><label></label></dt>
+                        <dd><a href='<?php echo base_url()."main/signup" ?>'>
+                    <span class="glyphicon glyphicon-plus" style="color: #76f2c4"></span>
+                    <span class="check_label" style="color: #23b27e; margin-left: 8px">Sign Up</span></a>
+                        </dd>
+                    </dl>
                     
                      <dl class="submit">
                     <button type="submit" name="submit" id="submit" class="btn btn-success">Login</button>

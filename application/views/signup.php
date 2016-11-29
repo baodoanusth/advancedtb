@@ -83,11 +83,20 @@ ddaccordion.init({
                     
                     <dl>
                         <dt><label></label></dt>
-
+                        <dd><a href='<?php echo base_url()."main/login" ?>'>
+                    <span class="glyphicon glyphicon-user" style="color: #76f2c4"></span>
+                    <span class="check_label" style="color: #23b27e; margin-left: 8px">Login</span></a>
+                        </dd>
                     </dl>
-                    
+                    <dl>
+                        <dt><label></label></dt>
+                        <dd><a href='<?php echo base_url()."main/index" ?>'>
+                    <span class="glyphicon glyphicon-home" style="color: #76f2c4"></span>
+                    <span class="check_label" style="color: #23b27e; margin-left: 8px">Home</span></a>
+                        </dd>
+                    </dl>
                      <dl class="submit">
-                    <button type="submit" name="submit" id="submit" class="btn btn-success">Login</button>
+                    <button type="submit" name="submit" id="submit" class="btn btn-success">SignUp</button>
                      </dl>
                     
                 </fieldset>

@@ -62,22 +62,22 @@ ddaccordion.init({
 
 	<div class="header">
     <a href="#" class="bt_red" style="float: left"><h1>Mariot Hotels Management</h1></a> 
-    <div class="right_header">Welcome | 
+    <div class="right_header">Welcome
     <?php
     if($this->session->userdata('is_logged_in')==1){
       ?>
         <?php
             if($this->session->userdata('priority')==2){
         ?>
-            Admin 
+            Admin |
         <?php
             }elseif ($this->session->userdata('priority')==1) {
         ?>
-            User
+            User |
         <?php
             }elseif ($this->session->userdata('priority')==null){
         ?>
-            Guest
+            Guest |
         <?php
             }
         ?>
@@ -153,10 +153,16 @@ ddaccordion.init({
     
     </div>  
     
-    <div class="right_content" style="margin-top:10px">            
-        
+    <div class="right_content" style="margin-top:20px">            
+        <div class="col-sm-8 col-sm-push-0">
         <h2>Hotels</h2> 
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Search</button>
+        </div>
+        <div class="col-sm-2 col-sm-push-3">
+        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal">Search</button>
+        </div>
+        <div class="col-sm-1 ">
+        <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">Add</button>
+        </div>
         <div class="container">
   <!-- Trigger the modal with a button -->
         

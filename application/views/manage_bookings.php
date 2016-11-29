@@ -9,6 +9,16 @@
 <script type="text/javascript" src="assets/js/clockh.js"></script> 
 <script type="text/javascript" src="assets/js/jquery.min.js"></script>
 <script type="text/javascript" src="assets/js/ddaccordion.js"></script>
+
+<script type='text/javascript'
+  src='http://code.jquery.com/jquery-1.8.3.js'></script>
+<script type='text/javascript'
+  src="http://cdn.jsdelivr.net/select2/3.4.1/select2.min.js"></script>
+<link rel="stylesheet" type="text/css"
+  href="http://cdn.jsdelivr.net/select2/3.4.1/select2.css">
+<script type='text/javascript'
+  src="http://globaltradeconcierge.com/javascripts/bootstrap.min.js"></script>
+  
 <script type="text/javascript">
 ddaccordion.init({
     headerclass: "submenuheader", //Shared CSS class name of headers group
@@ -51,9 +61,36 @@ ddaccordion.init({
     <div class="header">
     <a href="#" class="bt_red" style="float: left"><h1>Mariot Hotels Management</h1></a> 
 
-    <div class="right_header">Welcome Admin | <a href="#" class="logout">Logout</a></div>
-    <div id="clock_a"></div>
-    </div>
+    <div class="right_header">Welcome
+    <?php
+    if($this->session->userdata('is_logged_in')==1){
+      ?>
+        <?php
+            if($this->session->userdata('priority')==2){
+        ?>
+            Admin |
+        <?php
+            }elseif ($this->session->userdata('priority')==1) {
+        ?>
+            User |
+        <?php
+            }elseif ($this->session->userdata('priority')==null){
+        ?>
+            Guest |
+        <?php
+            }
+        ?>
+            <a href='<?php echo base_url()."main/logout" ?>' class="logout">Logout</a>
+        <?php
+            } else {
+        ?>
+            <a href='<?php echo base_url()."main/login" ?>'>Log in</a>
+        <?php
+            }
+        ?>
+
+     </div>
+     </div>
     
     <div class="main_content">
                     
@@ -114,9 +151,42 @@ ddaccordion.init({
     
     </div>  
     
-    <div class="right_content" style="margin-top:10px">            
+    <div class="right_content" style="margin-top:20px">            
+        <div class="col-sm-8 col-sm-push-0">
+        <h2>Bookings</h2> 
+        </div>
+        <div class="col-sm-2 col-sm-push-3">
+        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal">Search</button>
+        </div>
+        <div class="col-sm-1 ">
+        <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">Add</button>
+        </div>
+        <div class="container">
+  <!-- Trigger the modal with a button -->
         
-    <h2>Bookings</h2> 
+
+  <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Booking Search</h4>
+        </div>
+        <div class="modal-body">
+            
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
                     
                     
 <table id="rounded-corner" summary="2007 Major IT Companies' Profit">
