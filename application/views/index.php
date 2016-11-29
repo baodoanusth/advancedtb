@@ -19,20 +19,7 @@
   href="http://cdn.jsdelivr.net/select2/3.4.1/select2.css">
 <script type='text/javascript'
   src="http://globaltradeconcierge.com/javascripts/bootstrap.min.js"></script>
-<script type="text/javascript">
-   $(".modal-body form").submit(function(e) {
-    var url = "index.php"; // the script where you handle the form input.
-    $.ajax({
-           type: "POST",
-           url: url,
-           data: $(this).serialize(), // serializes the form's elements.
-           success: function(data) {
-               $(this).html("Thank you!!!");
-           }
-         });
-    e.preventDefault(); // avoid to execute the actual submit of the form.
-});
-</script>
+
 
 <script type="text/javascript">
 ddaccordion.init({
@@ -228,7 +215,7 @@ ddaccordion.init({
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close">&times;</button>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Hotel Search</h4>
         </div>
         <div class="modal-body">
@@ -243,7 +230,7 @@ ddaccordion.init({
                 </select>
                 <input type="text" name="Key"  size="65" placeholder="Keyword" />
 
-                <button type="post" name="submit" id="submit" value="Submit" class="btn btn-primary"s />Submit</button>
+                <button type="submit" name="submit" id="submit" value="Submit" class="btn btn-primary"s />Submit</button>
             </form>
                     <?php
                         $type = $this->input->post('type');
