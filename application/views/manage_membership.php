@@ -162,6 +162,7 @@ ddaccordion.init({
         <div class="container">
   <!-- Trigger the modal with a button -->
         
+<<<<<<< HEAD
 
   <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
@@ -185,6 +186,10 @@ ddaccordion.init({
   </div>
   
 </div>
+=======
+    <h2>Membership</h2> 
+    <a href="add_membership"><button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Add</button> </a>
+>>>>>>> 162bdd192914b16cb1a22eb597e22046d11c6048
                     
                     
 <table id="rounded-corner" summary="2007 Major IT Companies' Profit">

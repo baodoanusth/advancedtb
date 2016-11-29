@@ -187,7 +187,7 @@ ddaccordion.init({
   
 </div>
                     
-                    
+    <a href="add_guest"><button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Add</button> </a>
 <table id="rounded-corner" summary="2007 Major IT Companies' Profit">
     <thead>
     	<tr>

@@ -163,31 +163,10 @@ ddaccordion.init({
         </div>
         <div class="container">
   <!-- Trigger the modal with a button -->
-        
 
-  <!-- Modal -->
-        <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Hotel Search</h4>
-        </div>
-        <div class="modal-body">
-            
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-  
-</div>
-                    
+    <h2>Staff</h2> 
+    <a href="add_staff"><button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Add</button> </a>
+
                     
 <table id="rounded-corner" summary="2007 Major IT Companies' Profit">
     <thead>
